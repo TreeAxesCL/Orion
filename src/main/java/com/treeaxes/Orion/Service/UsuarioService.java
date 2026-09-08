@@ -41,6 +41,7 @@ public class UsuarioService {
         UsuarioResponse res = new UsuarioResponse(
                 usuario.getId(),
                 usuario.getUsername(),
+                usuario.getPassword(),
                 usuario.getCreatedAt()
         );
         return res;
@@ -54,6 +55,7 @@ public class UsuarioService {
         UsuarioResponse res = new UsuarioResponse(
                 usuario.getId(),
                 usuario.getUsername(),
+                usuario.getPassword(),
                 usuario.getCreatedAt()
         );
         return res;
@@ -66,6 +68,7 @@ public class UsuarioService {
                 .map(usuario -> new UsuarioResponse(
                         usuario.getId(),
                         usuario.getUsername(),
+                        usuario.getPassword(),
                         usuario.getCreatedAt()
                 ))
                 .toList();
@@ -80,6 +83,7 @@ public class UsuarioService {
         UsuarioResponse res = new UsuarioResponse(
                 usuario.getId(),
                 usuario.getUsername(),
+                usuario.getPassword(),
                 usuario.getCreatedAt()
         );
         return res;

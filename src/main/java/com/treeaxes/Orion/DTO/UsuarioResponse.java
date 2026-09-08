@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 public class UsuarioResponse {
     private Long id;
     private String username;
+    private String password;
     private LocalDateTime createdAt;
 }
 

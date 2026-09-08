@@ -27,7 +27,7 @@ public class UsuarioController {
 
     // ======= OBTENER USUARIOS ======
     // Endpoint para obtener un usuario por su ID
-    @GetMapping("/{id}")
+    @GetMapping("/{id:\\d+}")
     public ResponseEntity<UsuarioResponse> obtenerUsuario(@PathVariable Long id){
         UsuarioResponse response = usuarioService.obtenerUsuario(id);
         if(response == null){
@@ -46,7 +46,7 @@ public class UsuarioController {
 
     // ======= ELIMINAR USUARIOS ======
     // Endpoint para eliminar un usuario por su ID
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id:\\d+}")
     public ResponseEntity<UsuarioResponse> eliminarUsuario(@PathVariable Long id){
         UsuarioResponse response = usuarioService.obtenerUsuario(id);
         if(response == null) return ResponseEntity.notFound().build();
