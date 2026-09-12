@@ -42,7 +42,7 @@ public class AuthController {
 
         final String jwt = jwtUtil.generateToken(usuario);
         log.info("Inicio de sesion exitoso para Usuario id={}", usuario.getId());
-        return ResponseEntity.ok(new AuthResponse(jwt, usuario.getId()));
+        return ResponseEntity.ok(new AuthResponse(usuario.getId(), jwt));
     }
 
 }

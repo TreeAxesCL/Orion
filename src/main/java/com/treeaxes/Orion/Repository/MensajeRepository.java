@@ -9,7 +9,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MensajeRepository extends JpaRepository<Mensaje,Long> {
-    // Encontrar Historial
-    Page<Mensaje> findBySenderIdAndReceiverIdOrSenderIdAndReceiverIdOrderByFechaEnvioDesc(Long s1, Long r1, Long s2, Long r2, Pageable pageable);
+
+    Page<Mensaje> findBySenderIdAndReceiverIdOrSenderIdAndReceiverIdOrderByFechaEnvioDesc(
+            Long senderId, Long receiverId,
+            Long senderId1, Long receiverId1,
+            Pageable pageable
+    );
 
 }

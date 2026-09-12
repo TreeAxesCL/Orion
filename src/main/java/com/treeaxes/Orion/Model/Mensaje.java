@@ -23,6 +23,6 @@ public class Mensaje {
     @Column(nullable = false, length = 1000)
     private String mensaje;
 
-    @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt = LocalDateTime.now();
+    @Column(name = "fecha_envio", updatable = false)
+    private LocalDateTime fechaEnvio = LocalDateTime.now();
 }
