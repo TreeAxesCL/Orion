@@ -15,10 +15,10 @@ public class Mensaje {
     private Long id;
 
     @Column(nullable = false)
-    private Long id_sender;
+    private Long senderId;
 
     @Column(nullable = false)
-    private Long id_receiver;
+    private Long receiverId;
 
     @Column(nullable = false, length = 1000)
     private String mensaje;
