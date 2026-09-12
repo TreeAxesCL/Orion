@@ -1,8 +1,10 @@
 services:
+  # Base de Datos
   postgres:
     image: postgres:16
     container_name: db
     restart: unless-stopped
+    # Variables de Entorno de la DB
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -19,7 +21,7 @@ services:
     networks:
       - orion-network
 
-
+  # Backend de Orion
   orion-backend:
     build:
       context: ./
@@ -32,7 +34,7 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:${POSTGRES_PORT}/${POSTGRES_DB}
       SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
@@ -43,6 +45,7 @@ services:
 volumes:
   postgres_data:
 
+# Red interna para conectar el Backend con la DB
 networks:
   orion-network:
     driver: bridge
